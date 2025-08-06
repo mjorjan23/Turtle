@@ -1,0 +1,24 @@
+{
+  "id": "testplug",
+  "name": "testplug",
+  "version": "0.1.0",
+  "description": "",
+  "icon": {
+    "class": "glyphicon glyphicon-cog",
+    "src": ""
+  },
+  "disableServerSideExecution": false,
+  "disableBrowserSideExecution": true,
+  "dependencies": [],
+  "writeAccessRequired": false,
+  "configStructure": [
+    {
+      "name": "inputPath",
+      "displayName": "Input Python File Path",
+      "description": "Path to the Python file to import",
+      "propertyType": "string",
+      "default": "main.py",
+      "value": ""
+    }
+  ]
+}

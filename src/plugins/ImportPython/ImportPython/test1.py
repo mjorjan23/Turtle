@@ -1,0 +1,12 @@
+import turtle
+t = turtle.Turtle()
+t.penup()
+t.goto(-150, 50)
+t.pendown()
+t.right(90)
+t.color('blue')
+t.width(5)
+t.left(90)
+t.forward(50)
+t.clear()
+turtle.done()
