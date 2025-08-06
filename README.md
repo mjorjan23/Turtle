@@ -1,5 +1,5 @@
-Turtle Graphics MiniProject
-This project allows the end user to compose a turtle graphics model, and it also contains 3 plugins
+Turtle Graphics MiniProject 
+This project allows the end user to compose a turtle graphics model, and it also contains 3 plugins to generate models, python code, or SVG images
 
 #Installation
 First, install the Turtle following:
