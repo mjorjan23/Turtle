@@ -1,77 +1,193 @@
-Turtle Graphics MiniProject 
-This project allows the end user to compose a turtle graphics model, and it also contains 3 plugins to generate models, python code, or SVG images
+# Turtle Graphics MiniProject
 
-#Installation
-First, install the Turtle following:
-- [NodeJS](https://nodejs.org/en/) (LTS recommended)
+This project allows users to create turtle graphics models using WebGME. It includes three plugins that allow users to generate Python code, generate SVG images, and import Python turtle graphics files into WebGME models.
+
+## Installation
+
+### Prerequisites
+
+Before running the project, install the following:
+
+- [Node.js](https://nodejs.org/en/) (LTS recommended)
 - [MongoDB](https://www.mongodb.com/)
-- Second, start mongodb locally by running the `mongod` executable in your mongodb installation (you may need to create a `data` directory or set `--dbpath`).
-- Open a second terminal and run: node app.js
-- Then, run `webgme start` from the project root to start . Finally, navigate to `http://localhost:8888` to start using Turtle!
+- WebGME and the project's required Node.js dependencies
 
-#WebGME composition.
-To compose a model for your turtle graphics:
-1. Load the WebGME project. The root will be inclusize of the FCO and the turtleMETA.
-2. To begin, create a Turle entity within root. 
+### Starting the Project
 
-#Building your composition
-1. You can drag and drop different Commands,Functions and For loops. 
-2. Each node will have an attribute named "start". It is set to "no" as default. The attribute is used to identify the starting position. One will need to change the attribute to "yes" for this first item in their model, so the system knows where to begin. Whenever one enters a function or forLoop, the "start" should also be selected so the program knows where to begin within the function/loop as well. Please make sure there is only one starting point per overall model and per function/loop.
-3. To connect a node, utilize the "next" within the pointer tab. Select the appropriate node to point to. The last node of your model(or within a function/loop) must point to NULL.
-4. The list of commands are: forward, left, right, penUp, penDown, width, color, clear, goto, forLoop, and Function. 
-5. Functions/ForLoops:
-	a. Make sure a Function/ForLoop itself points to the next command/Function/ForLoop after exiting the function. (The last command within a Function/ForLoop points to NULL)
-	b. Nested Functions and ForLoops are allowed in this model
-	c. Within a Function/ForLoop, a single starting point MUST be selected
-6. When using forward, left, right, width, color, and goto. Attributes can be selected to determine the value. 
-	a. Forward will have an integer value(can be negative if going backwards)
-	b. Left and right will have an integer angle value
-	c. Width will have an integer value for thickness
-	d. Goto will have an x-value(xCor) and y-value(yCor) as coordinates  
-	e. Color will offer a drop down on available colors(red, orange, yellow, green, blue, purple, black, white)
-	
-#Plugins
--There are 3 PlugIns Available for usage 
-1. ToPythonFile
-	- this plugin will take an existing model and create a python file 
-	- Click in any turtle and run the plugin. 
-	- A file "turtle_art.py" will be generated 
-	- Download the plugin and run from any Python3 interpreter so visualize a picture
-2. PythonToSVG
-	- this plugin will take an existing model and create a SVG file 
-	- Click in any turtle and run the plugin. 
-	- A file "turtle_SVG.py" will be generated 
-	- Download the plugin and run from any Python3 interpreter to generate a "image_file.svg" that will be saved in the directory
-	- The SVG file can be opened with any web based client
-3. ImportPython
-	- this plugin should be run from the root
-	- it will take any .py turgle graphics file and produce a composition model
-	- any complex commands that are unknown will result in a error warning within the console
-	- after a model is created, the user can access it on the composition pane within webgme
+1. Clone or download the project repository.
+2. Open a terminal and navigate to the project directory.
+3. Install the project dependencies:
 
-#Visuals
-1. each command/function/loop will have nodes with pictures to help the user have a better identification.
-2. the visuals are static, but the nodes will contain attributes within their name
+   ```bash
+   npm install
+   ```
 
-#Notes
-1. Recursion-safe
-2. Function calls are numbered in the order they are encountered
-3. Model must include starting points for:
-	a. overall model  
-	b. each function
+4. Start MongoDB locally using the `mongod` executable. You may need to create a data directory or specify a database path using `--dbpath`.
+5. Open a second terminal and navigate to the project directory.
+6. Start the WebGME application using the startup command configured for the project, such as:
 
-#Assignment8 sample code 
-- I have 2 turtles within webgme that can be used to run the plugins: ToPythonFile and PythonToSVG
-- one turtle called "square_triangle" that draws a square and a triangle
-- one turtle called "printLA" that draws the letters LA
-- I have a sample code file "test1.py" within the project that will allow a user to generate a sample composition 
+   ```bash
+   node app.js
+   ```
 
+7. Open a web browser and navigate to:
 
+   http://localhost:8888
 
+The WebGME application should now be available.
 
-#Author
-Michael Jan
-Vanderbilt University
-CS 6388 
-Model Integrated Computing
+## WebGME Model Composition
 
+To create a turtle graphics model:
+
+1. Open the WebGME project.
+2. The root contains the FCO and turtleMETA.
+3. Create a Turtle entity within the root.
+4. Add commands, functions, and loops to build your turtle graphics composition.
+
+## Building Your Composition
+
+### 1. Adding Nodes
+
+Users can drag and drop different Commands, Functions, and ForLoops into their model.
+
+### 2. Setting the Starting Point
+
+Each node contains an attribute named `start`, which is set to `no` by default.
+
+- Change the attribute to `yes` for the first node in the model.
+- Each Function or ForLoop must also have a starting node within its own composition.
+- There must be exactly one starting point for the overall model and exactly one starting point within each Function or ForLoop.
+
+This allows the system to identify where execution should begin.
+
+### 3. Connecting Nodes
+
+Nodes are connected using the `next` pointer.
+
+1. Select the node.
+2. Open the Pointer tab.
+3. Select the `next` pointer.
+4. Connect it to the appropriate node.
+
+The final node in a model, Function, or ForLoop must have its `next` pointer set to `NULL`.
+
+### 4. Available Commands
+
+The model supports the following commands:
+
+- `forward` — Moves the turtle forward or backward.
+- `left` — Rotates the turtle left.
+- `right` — Rotates the turtle right.
+- `penUp` — Lifts the pen so movement does not draw.
+- `penDown` — Lowers the pen so movement draws.
+- `width` — Changes the pen thickness.
+- `color` — Changes the pen color.
+- `clear` — Clears the drawing.
+- `goto` — Moves the turtle to specified coordinates.
+- `forLoop` — Repeats a sequence of commands.
+- `Function` — Organizes a sequence of commands into a function.
+
+### 5. Functions and ForLoops
+
+Functions and ForLoops allow users to create more complex turtle graphics compositions.
+
+- Each Function or ForLoop must have a starting point within its contents.
+- The final command inside a Function or ForLoop must point to `NULL`.
+- The Function or ForLoop node itself must point to the next command, Function, or ForLoop that should execute afterward.
+- Nested Functions and ForLoops are supported.
+
+### 6. Command Attributes
+
+Several commands have attributes that determine their behavior.
+
+| Command | Attribute | Description |
+|---|---|---|
+| `forward` | `value` | Integer distance; negative values move backward |
+| `left` | `angle` | Integer angle for left rotation |
+| `right` | `angle` | Integer angle for right rotation |
+| `width` | `value` | Integer pen thickness |
+| `goto` | `xCor`, `yCor` | X and Y coordinates |
+| `color` | `selection` | Selects a pen color |
+
+Available colors include red, orange, yellow, green, blue, purple, black, and white.
+
+## Plugins
+
+The project includes three plugins.
+
+### 1. ToPythonFile
+
+This plugin converts an existing turtle graphics model into executable Python code.
+
+**Instructions:**
+
+1. Select a Turtle model in WebGME.
+2. Run the `ToPythonFile` plugin.
+3. Download the generated `turtle_art.py` file.
+4. Run the file using a Python 3 interpreter to display the turtle graphics drawing.
+
+### 2. PythonToSVG
+
+This plugin generates Python code that produces an SVG image from an existing turtle graphics model.
+
+**Instructions:**
+
+1. Select a Turtle model in WebGME.
+2. Run the `PythonToSVG` plugin.
+3. Download the generated `turtle_SVG.py` file.
+4. Run the file using a Python 3 interpreter.
+5. The script generates an `image_file.svg` file in the working directory.
+6. Open the SVG file using a web browser or another SVG-compatible application.
+
+### 3. ImportPython
+
+This plugin imports Python turtle graphics code and converts it into a WebGME composition model.
+
+**Instructions:**
+
+1. Select the root of the WebGME project.
+2. Run the `ImportPython` plugin.
+3. Provide a Python turtle graphics file.
+4. The plugin processes the file and generates a corresponding composition model.
+5. The generated model can be accessed through the WebGME composition pane.
+
+Unsupported or unrecognized commands may generate error warnings in the console.
+
+## Visuals
+
+The project includes visual representations of Commands, Functions, and ForLoops.
+
+- Each node has a picture to help users identify its purpose.
+- The visuals are static.
+- Node names display attribute information to help users understand the configured commands.
+
+## Additional Notes
+
+1. The project includes safeguards against recursive execution.
+2. Function calls are numbered in the order they are encountered.
+3. Every model must have a starting point.
+4. Every Function and ForLoop must have its own starting point.
+5. The final command within each execution sequence must have its `next` pointer set to `NULL`.
+
+## Assignment 8 Sample Models
+
+The WebGME project includes two sample turtle graphics models that can be used to test the `ToPythonFile` and `PythonToSVG` plugins.
+
+### square_triangle
+
+Draws a square and a triangle.
+
+### printLA
+
+Draws the letters LA using turtle graphics commands.
+
+### test1.py
+
+The project also includes a sample Python file named `test1.py`, which can be used with the `ImportPython` plugin to generate a sample WebGME composition.
+
+## Author
+
+Michael Jan  
+Vanderbilt University  
+CS 6388 — Model Integrated Computing
